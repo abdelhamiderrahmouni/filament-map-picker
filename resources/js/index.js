@@ -1,7 +1,7 @@
 import * as L from 'leaflet';
 import 'leaflet-fullscreen';
 import "@geoman-io/leaflet-geoman-free";
-
+import 'leaflet.photon';
 
 document.addEventListener('DOMContentLoaded', () => {
     const mapPicker = ($wire, config, state) => {
@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
 
             setMarkerRange: function () {
-                distance=parseInt(this.rangeSelectField.value || 0 ) ;
+                distance = parseInt(this.rangeSelectField?.value || 0 ) ;
                 if (this.rangeCircle) {
                     this.rangeCircle.setLatLng(this.getCoordinates()).setRadius(distance);
                 } else {
@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.state = state;
                 this.rangeSelectField = document.getElementById(config.rangeSelectField || 'data.distance');
                 let that=this
-                this.rangeSelectField.addEventListener('change', function () {that.updateMarker(); });
+                this.rangeSelectField?.addEventListener('change', function () {that.updateMarker(); });
                 $wire.on('refreshMap', this.refreshMap.bind(this));
             },
 
